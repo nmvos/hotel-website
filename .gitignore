@@ -1,1 +1,17 @@
+# Virtuele omgeving
+myenv/
+venv/
+
+# Python gegenereerde bestanden
+__pycache__/
+*.pyc
+*.pyo
+
+# Instellingen of geheime bestanden
+.env
+*.sqlite3
+
+# IDE-configuratiebestanden (optioneel)
+.vscode/
+.idea/
 
