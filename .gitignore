@@ -7,11 +7,9 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Instellingen of geheime bestanden
 .env
 *.sqlite3
 
-# IDE-configuratiebestanden (optioneel)
 .vscode/
 .idea/
 
