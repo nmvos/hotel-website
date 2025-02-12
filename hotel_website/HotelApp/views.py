@@ -15,3 +15,6 @@ def over_ons(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+def footer(request):
+    return render(request, 'footer.html')

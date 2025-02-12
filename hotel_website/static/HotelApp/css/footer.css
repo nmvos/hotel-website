@@ -1,0 +1,84 @@
+footer {
+    background-color: #B5925C; /* Goudbruin uit de huisstijl */
+    color: #FFFFFF;
+    padding: 30px 0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+footer .col-md-6 {
+    max-width: 600px;
+    width: 100%;
+}
+
+footer .footer-text {
+    font-size: 18px;
+    margin: 15px 0;
+    color: #F9F58B;
+    font-weight: bold;
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+footer .social-link {
+    color: #FFFFFF;
+    font-size: 22px;
+    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+footer .social-link:hover {
+    color: #F9F58B;
+    transform: scale(1.2);
+    box-shadow: 0px 0px 10px rgba(249, 245, 139, 0.8); /* Glow effect */
+}
+
+footer .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+footer .footer-links li {
+    display: inline;
+}
+
+footer .footer-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+footer .footer-links a:hover {
+    color: #F9F58B;
+    text-shadow: 0px 0px 8px rgba(249, 245, 139, 0.8);
+    transform: scale(1.1); /* Subtle scale effect */
+}
+
+footer .copyright {
+    font-size: 15px;
+    color: #FFFFFF;
+    margin-top: 25px;
+    font-style: italic;
+}
