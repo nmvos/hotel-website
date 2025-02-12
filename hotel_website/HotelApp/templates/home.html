@@ -1,17 +1,16 @@
-{% extends 'navbar.html' %}
+{% extends 'base.html' %}
+
 {% load static %}
-
+<!-- bovenstaande moet altijd -->
+<!-- onderstaande is de content van de pagina -->
 {% block content %}
-<main class="container-fluid mt-4">
-    <div class="d-flex justify-content-center">
-        <div class="container p-3 bg-light text-center mx-2">
-            <h3>Welkom</h3>
+    <section class="d-flex justify-content-center">
+        <article class="container p-3 bg-light text-center mx-2">
+            <h3>Welkom homepage</h3>
             <p>Bekijk <a href="#">deze link</a> voor meer informatie.</p>
-        </div>
-        <div class="container p-3 bg-light text-center mx-2">
+        </article>
+        <article class="container p-3 bg-light text-center mx-2">
             <img src="{% static 'HotelApp/img/dummy_image.jpg' %}" class="img-fluid rounded w-50 w-25" alt="Voorbeeld afbeelding">
-        </div>
-    </div>
-</main>
-
+        </article>
+    </section>
 {% endblock %}

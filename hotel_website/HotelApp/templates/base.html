@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'HotelApp/css/navbar.css' %}">    
+    <link rel="stylesheet" href="{% static 'HotelApp/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'HotelApp/css/footer.css' %}">
     <title>Document</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                        <a class="nav-link" href="{% url 'kamers' %}">Kamers</a> 
+                        <a class="nav-link" href="{% url 'kamers' %}">Kamers</a>
                         <a class="nav-link" href="{% url 'restaurants' %}">Restaurant</a>
                         <a class="nav-link" href="{% url 'over_ons' %}">Over ons</a>
                         <a class="nav-link" href="{% url 'contact' %}">Contact</a>
@@ -33,7 +34,27 @@
             </div>
         </nav>
     </header>
-    <main> {% block content %}{% endblock %} </main>
-    <footer></footer>
+    <main class="container-fluid mt-4"> {% block content %}{% endblock %} </main>
+    <footer>
+        <section class="container row">
+            <article class="col-md-6">
+                <h2>De Zonne Vallei</h2>
+                <p class="footer-text">Waar luxe, gastvrijheid en comfort samenkomen voor een onvergetelijke
+                    ervaring.</p>
+            </article>
+            <article class="col-md-6">
+                <nav aria-label="navigation footer">
+                    <a class="nav-link" href="{% url 'kamers' %}">Kamers</a>
+                    <a class="nav-link" href="{% url 'restaurants' %}">Restaurant</a>
+                    <a class="nav-link" href="{% url 'over_ons' %}">Over ons</a>
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </nav>
+            </article>
+            <div class="copyright col-md-12 text-center mt-4">
+                <p>© 2024 De Zonne Vallei. Alle rechten voorbehouden.</p>
+            </div>
+        </section>
+    </footer>
 </body>
+
 </html>

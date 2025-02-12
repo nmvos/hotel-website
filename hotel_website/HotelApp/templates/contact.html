@@ -1,14 +1,17 @@
-{% extends 'navbar.html' %} {% block content %}
+{% extends 'base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<!-- bovenstaande moet altijd -->
+<!-- onderstaande is de content van de pagina -->
+{% block content %}
+    <section class="d-flex justify-content-center">
+        <article class="container p-3 bg-light text-center mx-2">
+            <h3>Welkom contact</h3>
+            <p>Bekijk <a href="#">deze link</a> voor meer informatie.</p>
+        </article>
+        <article class="container p-3 bg-light text-center mx-2">
+            <img src="{% static 'HotelApp/img/dummy_image.jpg' %}" class="img-fluid rounded w-50 w-25" alt="Voorbeeld afbeelding">
+        </article>
+    </section>
 {% endblock %}
+
