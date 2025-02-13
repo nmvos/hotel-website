@@ -4,13 +4,15 @@
 <!-- bovenstaande moet altijd -->
 <!-- onderstaande is de content van de pagina -->
 {% block content %}
-    <section class="d-flex justify-content-center">
-        <article class="container p-3 bg-light text-center mx-2">
-            <h3>Welkom kamers</h3>
-            <p>Bekijk <a href="#">deze link</a> voor meer informatie.</p>
-        </article>
-        <article class="container p-3 bg-light text-center mx-2">
-            <img src="{% static 'HotelApp/img/logo_variant_2.png' %}" class="img-fluid rounded w-50 w-25" alt="Voorbeeld afbeelding">
-        </article>
-    </section>
+<section class="d-flex justify-content-center flex-wrap">
+    <article class="container p-3 bg-light text-center mx-2">
+        <h3>Ontdek Onze Kamers</h3>
+        <p>Welkom in het 3-duimen Hotel De Zonne Vallei, waar luxe en comfort hand in hand gaan. Gelegen in het hart van Alkmaar, bieden onze kamers een perfecte balans tussen modern design en gezelligheid. Of u nu voor een romantisch uitje, een familievakantie of een zakelijke bijeenkomst komt, ons hotel heeft precies wat u nodig heeft voor een onvergetelijk verblijf. Geniet van de rust en elegantie van onze kamers en ervaar de uitzonderlijke gastvrijheid die ons hotel kenmerkt.</p>
+    </article>
+    <article class="container p-3 bg-light text-center mx-2">
+        <img src="{% static 'HotelApp/img/logo_variant_2.png' %}" class="img-fluid rounded w-50 w-25" alt="Voorbeeld afbeelding">
+    </article>
+</section>
+
+
 {% endblock %}
