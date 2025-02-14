@@ -14,7 +14,6 @@ section{
     width: 100%;
 }
 
-/* Zorgt ervoor dat de parallax niet vastzit op kleine schermen */
 @media (max-width: 768px) {
     .parallax {
         background-attachment: scroll;
@@ -38,7 +37,7 @@ section{
     margin-top: -350px;
 }
 
-/* Stijlen voor de foto-blokken */
+
 .photo-block {
     background-color: #ffffff;
     padding: 20px;
@@ -50,7 +49,6 @@ section{
     text-align: center;
 }
 
-/* Afbeeldingen in de foto-blokken */
 .photo-block img {
     width: 100%;
     height: 250px;
@@ -58,7 +56,7 @@ section{
     border-radius: 8px;
 }
 
-/* Responsive aanpassingen voor foto-blokken */
+
 @media (max-width: 992px) {
     .photo-block img {
         height: 200px;
@@ -74,7 +72,6 @@ section{
     }
 }
 
-/* Zorgt ervoor dat de 3 kolommen gecentreerd blijven */
 .row.justify-content-center .col-md-4 {
     display: flex;
     justify-content: center;
@@ -93,13 +90,12 @@ section{
     }
 }
 
-/* Algemene stijlen */
 body {
     font-family: Arial, sans-serif;
     background-color: #FFFFFF;
 }
 
-/* Hero sectie */
+
 .hero {
     background: url('../img/background.png') center/cover no-repeat;
     height: 60vh;
@@ -109,7 +105,7 @@ body {
     text-align: center;
 }
 
-/* Foto Gallerij */
+
 .photo-gallery img {
     width: 100%;
     height: auto;
@@ -117,7 +113,7 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive aanpassingen */
+
 @media (max-width: 768px) {
     .hero {
         height: 50vh;
@@ -125,10 +121,10 @@ body {
 }
 
 .custom-bg {
-    background-color: #B5925C; /* Achtergrondkleur */
-    color: white; /* Optioneel: Tekstkleur voor contrast */
-    border-radius: 10px; /* Optioneel: Voeg afgeronde hoeken toe als het beter past */
-    padding: 40px; /* Houd dezelfde padding als voorheen */
+    background-color: #B5925C; 
+    color: white; 
+    border-radius: 10px; 
+    padding: 40px; 
 }
 
 .container-fluid {

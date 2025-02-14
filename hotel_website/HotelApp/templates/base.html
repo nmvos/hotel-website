@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'HotelApp/css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'HotelApp/css/home.css' %}">
     <link rel="stylesheet" href="{% static 'HotelApp/css/footer.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -36,34 +37,42 @@
         </nav>
     </header>
     <main class="container-fluid mt-4"> {% block content %}{% endblock %} </main>
-    <footer class="text-center text-light py-3">
-        <section class="container row">
-            <article class="col-md-6">
-                <h2>De Zonne Vallei</h2>
+    <footer class="footer bg-custom text-light py-5">
+        <div class="container footer-container">
+            
+            <!-- Hotel info -->
+            <div class="footer-info">
+                <h3 class="fw-bold">De Zonne Vallei</h3>
                 <p class="footer-text">Waar luxe, gastvrijheid en comfort samenkomen voor een onvergetelijke ervaring.</p>
-            </article>
-            <article class="col-md-6">
-                <nav aria-label="navigation footer">
-                    <a class="nav-link" href="{% url 'kamers' %}">Kamers</a>
-                    <a class="nav-link" href="{% url 'restaurants' %}">Restaurant</a>
-                    <a class="nav-link" href="{% url 'over_ons' %}">Over ons</a>
-                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                </nav>
-            </article>
-            <div class="col-md-12 text-center mt-4">
+            </div>
+    
+            <!-- Weer informatie -->
+            <div class="weather">
                 {% if weather %}
-                <p>Het weer in {{ weather.city }}: {{ weather.temp }}°C, {{ weather.description }}</p>
-                <img src="https://openweathermap.org/img/wn/{{ weather.icon }}.png" alt="Weer icoon">
-            {% else %}
-                <p>Het weer is momenteel niet beschikbaar.</p>
+                    <p class="mb-1">Het weer in <strong>{{ weather.city }}</strong>: {{ weather.temp }}°C, {{ weather.description }}</p>
+                    <img src="https://openweathermap.org/img/wn/{{ weather.icon }}.png" alt="Weer icoon" class="weather-icon">
+                {% else %}
+                    <p>Het weer is momenteel niet beschikbaar.</p>
                 {% endif %}
             </div>
-            <div class="copyright col-md-12 text-center mt-4">
-                <p>© 2025 De Zonne Vallei. Alle rechten voorbehouden.</p>
-            </div>
-        </section>
-    </footer>
     
+            <!-- Links -->
+            <div class="footer-nav">
+                <h4 class="fw-semibold">Navigatie</h4>
+                <nav class="nav-links">
+                    <a href="{% url 'kamers' %}"><i class="fas fa-bed"></i> Kamers</a>
+                    <a href="{% url 'restaurants' %}"><i class="fas fa-utensils"></i> Restaurant</a>
+                    <a href="{% url 'over_ons' %}"><i class="fas fa-info-circle"></i> Over ons</a>
+                    <a href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact</a>
+                </nav>
+            </div>
+        </div>
+    
+        <!-- Copyright -->
+        <div class="text-center copyright">
+            <p class="small mb-0">© 2025 De Zonne Vallei. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
