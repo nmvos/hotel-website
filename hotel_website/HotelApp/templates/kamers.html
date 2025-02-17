@@ -13,6 +13,13 @@
         <img src="{% static 'HotelApp/img/logo_variant_2.png' %}" class="img-fluid rounded w-50 w-25" alt="Voorbeeld afbeelding">
     </article>
 </section>
-
+<section>
+    
+    {% for room in rooms %}
+    <h1>{{ room.room_type }}</h1>
+    <h1>{{ room.price_per_night }}</h1>
+    <h1>{{ room.availability }}</h1>
+      {% endfor %}
+</section>
 
 {% endblock %}

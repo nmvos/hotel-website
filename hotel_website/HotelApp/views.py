@@ -1,10 +1,12 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
+from .forms import RoomForm
+from .models import Room
 import requests, json
 
+
 # Create your views here.
-
-
 def home(request):
+<<<<<<< Updated upstream
    api_key = '969c22d28f33d607faa1dce4ef079679'
    url = "https://api.openweathermap.org/data/2.5/weather"
    params = {
@@ -26,10 +28,31 @@ def home(request):
    }
    
    return render(request, "home.html", {"weather": weather})
+=======
+    return render(request, "home.html")
+>>>>>>> Stashed changes
   
-
 def kamers(request):
-    return render(request, 'kamers.html')
+    rooms = Room.objects.all() # haalt de gegevens op
+    context = {'rooms': rooms}
+    return render(request, 'kamers.html', context)
+
+
+def add_room(request):
+  if request.method == 'GET':
+    form = RoomForm()
+
+  elif request.method == 'POST':
+        form = RoomForm(request.POST)
+        if form.is_valid(): # validatie
+            new_room = form.save(commit=False)
+            new_room.save() 
+            return redirect("kamers") 
+        
+  return render(request, "add_room.html", {"form": form})
+
+
+
 
 def restaurants(request):
     return render(request, 'restaurants.html')
