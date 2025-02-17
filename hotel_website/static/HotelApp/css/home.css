@@ -133,3 +133,7 @@ body {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
+
+.btn-custom{
+    background-color: #B5925C;
+}
