@@ -36,6 +36,8 @@
                         ❌
                         {% endif %}</p>
 
+                    <a href="{% url 'reserve_room' %}" class="btn btn-custom text-light">Reserveer</a>
+
                     {% if user.is_authenticated %}
                     <a href="{% url 'edit_room' room.id %}" class="btn btn-custom text-light">Kamer wijzigen</a>
                     {% endif %}

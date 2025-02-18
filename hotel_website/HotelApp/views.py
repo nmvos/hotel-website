@@ -1,10 +1,10 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
-from .forms import RoomForm
-from .models import Room
+from .forms import RoomForm, ReservationForm
+from django.core.mail import send_mail
+from .models import Room, Reservations
 import requests, json
 from django.contrib.auth.decorators import login_required
-
-
+from django.conf import settings
 
 # Create your views here.
 def home(request):
@@ -68,6 +68,24 @@ def edit_room(request, room_id): # def edit_room een je geeft de room_id mee (pr
     return render(request, "edit_room.html", {"form": form}) # redirect je naar edit_room.html en de rest snap ik niet
 
 
+
+# reserve functie
+def reserve_room(request):
+  if request.method == 'GET': 
+    form = ReservationForm()
+
+  elif request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid(): # validatie
+            reservation = form.save(commit=False)
+            reservation.save() 
+            return redirect("kamers") 
+        
+  return render(request, "reserve_room.html", {"form": form})
+    
+  
+
+
 def restaurants(request):
     return render(request, 'restaurants.html')
 
@@ -79,3 +97,22 @@ def contact(request):
 
 def login(request):
     return render(request, 'login.html')
+
+def verwerken(request):
+    if request.method == 'POST':
+        naam = request.POST.get('naam')
+        email = request.POST.get('email')
+        bericht = request.POST.get('bericht')
+
+        # Process the form data (e.g., send an email)
+        send_mail(
+            f'Contact Form Submission from {naam}',
+            bericht,
+            email,
+            [settings.DEFAULT_FROM_EMAIL],
+            fail_silently=False,
+        )
+
+        return HttpResponse('Bedankt voor je bericht!')
+
+    return redirect('contact')
