@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'hotel_website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+       'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hotel-website',  # De naam van je database
+        'USER': 'root',  # De MySQL-gebruiker
+        'PASSWORD': '',  # Het wachtwoord voor de MySQL-gebruiker
+        'HOST': 'localhost',  # Of het IP-adres van je MySQL-server
+        'PORT': '',  # De standaardpoort voor MySQL
     }
 }
 

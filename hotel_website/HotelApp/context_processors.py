@@ -23,7 +23,7 @@ def weather_data(request):
     except Exception as e:
         weather = {
             "description": "Niet beschikbaar",
-            "icon": "01d",  # Placeholder icoon
+            "icon": "01d",  
             "temp": "--",
             "city": "Onbekend"
         }
