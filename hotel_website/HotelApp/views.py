@@ -97,6 +97,7 @@ def contact(request):
 
 def login(request):
     return render(request, 'login.html')
+
 def verwerken(request):
     if request.method == 'POST':
         naam = request.POST.get('naam')
