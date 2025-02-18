@@ -2,6 +2,8 @@ from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from .forms import RoomForm
 from .models import Room
 import requests, json
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -31,13 +33,13 @@ def home(request):
 
   
 def kamers(request):
-    rooms = Room.objects.all() # haalt de gegevens op
-    context = {'rooms': rooms}
-    return render(request, 'kamers.html', context)
+    rooms = Room.objects.all()  # haalt alle kamers op
+    return render(request, "kamers.html", {"rooms": rooms})  
 
 
+@login_required()
 def add_room(request):
-  if request.method == 'GET':
+  if request.method == 'GET': 
     form = RoomForm()
 
   elif request.method == 'POST':
@@ -51,6 +53,20 @@ def add_room(request):
 
 
 
+@login_required() # je moet ingelogd zijn anders kan je niet naar de pagina
+def edit_room(request, room_id): # def edit_room een je geeft de room_id mee (primary key) zodat je deze in de code kunt gebruiken
+    room = get_object_or_404(Room, id=room_id) # room is de model room en omdat daar niet de room_id (primary_key) in zit geef je die appart mee
+
+    if request.method == 'POST': # als de request methode post is dan:
+        form = RoomForm(request.POST, instance=room) # het formulier is mijn custom form die ik heb aangemaakt en die vraag je met post, met instance=room vraag je alle data ervan uit
+        if form.is_valid(): # als de form voldoet aan de form standaarden dan:
+            form.save()  # slaat de form op
+            return redirect("kamers")  # verwijst je naar de kamer pagina
+    else:
+        form = RoomForm(instance=room)  # zorgt ervoor dat je altijd de kamer gegevens kan zien in de kamer
+
+    return render(request, "edit_room.html", {"form": form}) # redirect je naar edit_room.html en de rest snap ik niet
+
 
 def restaurants(request):
     return render(request, 'restaurants.html')
@@ -60,3 +76,6 @@ def over_ons(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+def login(request):
+    return render(request, 'login.html')
