@@ -1,10 +1,10 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from .forms import RoomForm, ReservationForm
+from django.core.mail import send_mail
 from .models import Room, Reservations
 import requests, json
 from django.contrib.auth.decorators import login_required
-
-
+from django.conf import settings
 
 # Create your views here.
 def home(request):
@@ -97,3 +97,21 @@ def contact(request):
 
 def login(request):
     return render(request, 'login.html')
+def verwerken(request):
+    if request.method == 'POST':
+        naam = request.POST.get('naam')
+        email = request.POST.get('email')
+        bericht = request.POST.get('bericht')
+
+        # Process the form data (e.g., send an email)
+        send_mail(
+            f'Contact Form Submission from {naam}',
+            bericht,
+            email,
+            [settings.DEFAULT_FROM_EMAIL],
+            fail_silently=False,
+        )
+
+        return HttpResponse('Bedankt voor je bericht!')
+
+    return redirect('contact')
