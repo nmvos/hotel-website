@@ -2,15 +2,16 @@ from django.db import models
 
 class Room(models.Model):  
     ROOM_TYPES = [ 
-        ('standaard', 'Standaard'),
-        ('deluxe', 'Deluxe'),
-        ('suite', 'Suite'),
-        ('familiekamer', 'Familiekamer'),
+        ('comfort kamer', 'Comfortkamer'),
+        ('deluxe kamer', 'Deluxekamer'),
+        ('junior suite', 'Junior Suite'),
+        ('familie suite', 'Familie Suite'),
+        ('bruidssuite', 'Bruidssuite'),
     ]
 
-    room_type = models.CharField(max_length=26, choices=ROOM_TYPES)  
+    room_type = models.CharField(max_length=20, choices=ROOM_TYPES)  
     price_per_night = models.DecimalField(max_digits=6, decimal_places=2) 
     availability = models.BooleanField(default=True) 
 
     def __str__(self):
-        return f"{self.get_room_type_display()} - €{self.price_per_night}"
+        return f"{self.get_room_type_display()} - €{self.price_per_night:.2f}"
