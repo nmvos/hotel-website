@@ -84,8 +84,6 @@ def reserve_room(request):
   return render(request, "reserve_room.html", {"form": form})
     
   
-
-
 def restaurants(request):
     return render(request, 'restaurants.html')
 
@@ -104,12 +102,15 @@ def verwerken(request):
         email = request.POST.get('email')
         bericht = request.POST.get('bericht')
 
-        # Process the form data (e.g., send an email)
+         # voegt naam en e-mail toe aan het bericht
+        email_tekst = f"Naam: {naam}\nE-mail: {email}\n\nBericht:\n{bericht}"
+
+        # processeed de form data
         send_mail(
-            f'Contact Form Submission from {naam}',
-            bericht,
-            email,
-            [settings.DEFAULT_FROM_EMAIL],
+            subject=f'Contactformulier van {naam}',
+            message=email_tekst,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.DEFAULT_FROM_EMAIL],
             fail_silently=False,
         )
 
