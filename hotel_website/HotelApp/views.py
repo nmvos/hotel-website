@@ -76,25 +76,36 @@ def reserve_room(request):
 
   elif request.method == 'POST':
         form = ReservationForm(request.POST)
+        naam = request.POST.get('name')
+        email = request.POST.get('email')
+        date = request.POST.get('date')
+        room_id = request.POST.get('room')
+
+
         if form.is_valid(): # validatie
             reservation = form.save(commit=False)
-            reservation.save() 
-            return redirect("kamers") 
+            reservation.save()
+
+            room = Room.objects.get(id=room_id)  # room objects
+            room_name = room.get_room_type_display() 
+
+            # voegt naam en e-mail toe aan het bericht
+            email_tekst = f"Naam: {naam}\nE-mail: {email}\n\nDatum:{date}\nKamer:{room_name}"
+
+           # processeed de form data
+            send_mail(
+            subject=f'Nieuwe reservering van {naam}',
+            message=email_tekst,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.DEFAULT_FROM_EMAIL],
+            fail_silently=False,
+            )
+
+        return redirect("kamers") 
         
   return render(request, "reserve_room.html", {"form": form})
-    
-  
-def restaurants(request):
-    return render(request, 'restaurants.html')
 
-def over_ons(request):
-    return render(request, 'over_ons.html')
 
-def contact(request):
-    return render(request, 'contact.html')
-
-def login(request):
-    return render(request, 'login.html')
 
 def verwerken(request):
     if request.method == 'POST':
@@ -117,3 +128,18 @@ def verwerken(request):
         return HttpResponse('Bedankt voor je bericht!')
 
     return redirect('contact')
+    
+  
+def restaurants(request):
+    return render(request, 'restaurants.html')
+
+def over_ons(request):
+    return render(request, 'over_ons.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def login(request):
+    return render(request, 'login.html')
+
+

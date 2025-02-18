@@ -2,11 +2,11 @@ from django.db import models
 
 class Room(models.Model):  
     ROOM_TYPES = [ 
-        ('comfort kamer', 'Comfortkamer'),
-        ('deluxe kamer', 'Deluxekamer'),
-        ('junior suite', 'Junior Suite'),
-        ('familie suite', 'Familie Suite'),
-        ('bruidssuite', 'Bruidssuite'),
+        ('Comfortkamer', 'Comfortkamer'),
+        ('Deluxekamer', 'Deluxekamer'),
+        ('Junior Suite', 'Junior Suite'),
+        ('Familie Suite', 'Familie Suite'),
+        ('Bruidssuite', 'Bruidssuite'),
     ]
 
     room_type = models.CharField(max_length=20, choices=ROOM_TYPES)  
@@ -18,7 +18,8 @@ class Room(models.Model):
 
 
 class Reservations(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=101
+    )
     email = models.EmailField()
     room = models.ForeignKey(Room, on_delete=models.CASCADE) 
     date = models.DateField()
