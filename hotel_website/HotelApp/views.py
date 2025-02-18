@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
-from .forms import RoomForm
-from .models import Room
+from .forms import RoomForm, ReservationForm
+from .models import Room, Reservations
 import requests, json
 from django.contrib.auth.decorators import login_required
 
@@ -66,6 +66,24 @@ def edit_room(request, room_id): # def edit_room een je geeft de room_id mee (pr
         form = RoomForm(instance=room)  # zorgt ervoor dat je altijd de kamer gegevens kan zien in de kamer
 
     return render(request, "edit_room.html", {"form": form}) # redirect je naar edit_room.html en de rest snap ik niet
+
+
+
+# reserve functie
+def reserve_room(request):
+  if request.method == 'GET': 
+    form = ReservationForm()
+
+  elif request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid(): # validatie
+            reservation = form.save(commit=False)
+            reservation.save() 
+            return redirect("kamers") 
+        
+  return render(request, "reserve_room.html", {"form": form})
+    
+  
 
 
 def restaurants(request):

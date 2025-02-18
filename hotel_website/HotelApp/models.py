@@ -15,3 +15,10 @@ class Room(models.Model):
 
     def __str__(self):
         return f"{self.get_room_type_display()} - €{self.price_per_night:.2f}"
+
+
+class Reservations(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    room = models.ForeignKey(Room, on_delete=models.CASCADE) 
+    date = models.DateField()
