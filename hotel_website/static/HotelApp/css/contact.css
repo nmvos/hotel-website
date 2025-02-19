@@ -80,3 +80,11 @@ h2 {
 .submit-button:hover {
     background-color: #8B6843;
 }
+
+ .custom_h2 {
+    color: #FFFFFF;
+}
+
+.a_custom {
+    color: #FFFFFF !important;
+} 
