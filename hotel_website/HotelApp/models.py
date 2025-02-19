@@ -20,7 +20,7 @@ class Room(models.Model):
 
 
 class Reservations(models.Model):
-    name = models.CharField(max_length=101
+    name = models.CharField(max_length=100
     )
     email = models.EmailField()
     room = models.ForeignKey(Room, on_delete=models.CASCADE) 

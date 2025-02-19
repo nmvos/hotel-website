@@ -43,11 +43,12 @@ def edit_room(request, room_id): # def edit_room een je geeft de room_id mee (pr
         form = RoomForm(request.POST, instance=room) # het formulier is mijn custom form die ik heb aangemaakt en die vraag je met post, met instance=room vraag je alle data ervan uit
         if form.is_valid(): # als de form voldoet aan de form standaarden dan:
             form.save()  # slaat de form op
+            messages.info(request, "Kamer is gewijzigd!")
             return redirect("kamers")  # verwijst je naar de kamer pagina
     else:
         form = RoomForm(instance=room)  # zorgt ervoor dat je altijd de kamer gegevens kan zien in de kamer
 
-    return render(request, "edit_room.html", {"form": form}) # redirect je naar edit_room.html en de rest snap ik niet
+    return render(request, "edit_room.html", {"form": form}) # redirect je naar edit_room.html 
 
 
 
@@ -61,18 +62,6 @@ def remove_room(request, room_id):
 
       return redirect("kamers")
         
-
-
-
-
-
-
-
-
-
-
-
-
 
 # reserve functie
 def reserve_room(request):
