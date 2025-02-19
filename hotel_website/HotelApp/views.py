@@ -43,7 +43,7 @@ def add_room(request):
     form = RoomForm()
 
   elif request.method == 'POST':
-        form = RoomForm(request.POST)
+        form = RoomForm(request.POST, request.FILES)
         if form.is_valid(): # validatie
             new_room = form.save(commit=False)
             new_room.save() 
