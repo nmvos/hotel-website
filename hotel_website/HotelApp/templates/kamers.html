@@ -22,7 +22,7 @@
     </article>
 </section>
 
-<section class="container mt-4">
+<section class="container">
     <div class="text-center my-4">
         <a href="{% url 'reserve_room' %}" class="btn btn-custom text-light">Reserveer</a>
     </div>
@@ -43,10 +43,12 @@
 
                     {% if user.is_authenticated %}
                     <div class="d-flex justify-content-center">
-                        <a href="{% url 'edit_room' room.id %}" class="btn btn-custom text-light">Kamer wijzigen</a>
+                        <a href="{% url 'edit_room' room.id %}" class="btn btn-custom text-light mx-2">Kamer
+                            wijzigen</a>
                         <form action="{% url 'remove_room' room.id %}" method="POST">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-danger">Verwijderen <i class="fa-solid fa-trash-can"></i></button>
+                            <button type="submit" class="btn btn-danger">Verwijderen <i
+                                    class="fa-solid fa-trash-can"></i></button>
                         </form>
                     </div>
                     {% endif %}
