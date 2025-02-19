@@ -1,8 +1,48 @@
+/* Define color variables */
 :root{
     --huisstyle1: #B5925C;
     --huisstyle1Hover: #8c6d4a;
     --huisstyle2: #FFFFFF;
     --huisstyle3: #F9F58B;
+}
+
+/* Global reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--huisstyle2);
+    color: #333;
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--huisstyle1);
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    color: var(--huisstyle1);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--huisstyle1Hover);
+}
+
+/* Container layout */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Custom Scrollbar Styles */
@@ -22,4 +62,12 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
     background: var(--huisstyle1Hover); /* Darker shade for hover effect */
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 15px; /* Adjust padding for smaller screens */
+    }
 }

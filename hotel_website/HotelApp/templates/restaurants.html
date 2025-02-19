@@ -1,27 +1,25 @@
 {% extends 'base.html' %}
 
 {% load static %}
-<!-- bovenstaande moet altijd -->
-<!-- onderstaande is de content van de pagina -->
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
 {% block content %}
-<section class="hero">
-    <div class="container text-center text-white">
+<section class="hero bg-dark text-white text-center py-5">
+    <div class="container">
         <h1 class="display-4">Welkom in Ons Restaurant</h1>
         <p class="lead">
-            Bij Hotel De Zonne Vallei zijn we trots op ons wereldberoemde restaurant, waar culinaire dromen
-            werkelijkheid worden.
-            Onze 2-duimen chef-kok, bekend om zijn creativiteit en vakmanschap, brengt zijn passie voor koken tot leven
-            in elk gerecht.
+            Bij Hotel De Zonne Vallei zijn we trots op ons wereldberoemde restaurant, waar culinaire dromen werkelijkheid worden.
+            Onze 2-duimen chef-kok, bekend om zijn creativiteit en vakmanschap, brengt zijn passie voor koken tot leven in elk gerecht.
             Met jarenlange ervaring in gerenommeerde keukens over de hele wereld, zorgt onze chef voor een
-            onvergetelijke eetervaring die zowel
-            traditionele als moderne smaken combineert.
+            onvergetelijke eetervaring die zowel traditionele als moderne smaken combineert.
         </p>
     </div>
 </section>
 
 <!-- sectie 2 menu lijst -->
 <section class="container py-5">
-    <div class="row g-4 align-items-center">
+    <div class="row g-4">
         <div class="col-lg-4">
             <div class="menu-card text-center">
                 <h2>Voorgerechten</h2>
@@ -63,22 +61,24 @@
     </div>
 </section>
 
-<!-- sectie 2.1 menu lijst -->
+<!-- Kinder Menu -->
 <section class="container py-5">
-    <div class="row g-4 align-items-center justify-content-center">
+    <div class="row justify-content-center">
         <div class="col-lg-6">
-            <div class="menu-card">
-                <h2>Kinder Menu's</h2>
-                <ul class="list-unstyled">
-                    <li><strong>Mini Burger</strong> - Met kaas en frietjes.</li>
-                    <li><strong>Kipnuggets</strong> - Geserveerd met appelmoes en een kleine salade.</li>
-                    <li><strong>Spaghetti Bolognese</strong> - Met huisgemaakte tomatensaus.</li>
-                    <li><strong>Pannenkoeken</strong> - Met stroop en poedersuiker.</li>
-                    <li><strong>Fish and Chips</strong> - Gebakken vis met frietjes en een beetje ketchup.</li>
-                </ul>
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h2>Kinder Menu's</h2>
+                    <ul class="list-unstyled">
+                        <li><strong>Mini Burger</strong> - Met kaas en frietjes.</li>
+                        <li><strong>Kipnuggets</strong> - Geserveerd met appelmoes en een kleine salade.</li>
+                        <li><strong>Spaghetti Bolognese</strong> - Met huisgemaakte tomatensaus.</li>
+                        <li><strong>Pannenkoeken</strong> - Met stroop en poedersuiker.</li>
+                        <li><strong>Fish and Chips</strong> - Gebakken vis met frietjes en een beetje ketchup.</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>  
+    </div>
 </section>
 
 {% endblock %}
