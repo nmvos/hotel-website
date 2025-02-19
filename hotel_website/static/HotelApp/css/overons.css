@@ -1,0 +1,87 @@
+/* filepath: /c:/xampp/htdocs/hotel-website/hotel_website/static/HotelApp/css/over_ons.css */
+
+/* General styles for the over_ons page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--huisstyle2);
+    color: #333;
+}
+
+/* Section styles */
+section {
+    padding: 60px 0;
+}
+
+/* Welcome section */
+#welkom {
+    background-color: var(--huisstyle2);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+#welkom h2 {
+    color: var(--huisstyle1);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#welkom p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+#welkom .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#welkom .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Our Story section */
+#ons-verhaal {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+}
+
+#ons-verhaal h1 {
+    color: var(--huisstyle1);
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#ons-verhaal .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ons-verhaal p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #welkom, #ons-verhaal {
+        padding: 40px 20px;
+    }
+
+    #welkom h2, #ons-verhaal h1 {
+        font-size: 2em;
+    }
+
+    #welkom p, #ons-verhaal p {
+        font-size: 1em;
+    }
+}
+
