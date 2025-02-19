@@ -3,14 +3,14 @@
 
 {% block content %}
 <section class="container py-5">
-    <h2 class="text-center">Kamer Wijzigen</h2>
+    <h2 class="text-center">Reserveer kamer</h2>
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card p-4">
                 <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-custom text-light">Wijzigen</button>
+                    <button type="submit" class="btn btn-custom text-light">Reserveer</button>
                 </form>
             </div>
         </div>

@@ -1,17 +1,60 @@
 {% extends 'base.html' %}
-
 {% load static %}
-<!-- bovenstaande moet altijd -->
-<!-- onderstaande is de content van de pagina -->
-{% block content %}
-    <section class="d-flex justify-content-center">
-        <article class="container p-3 bg-light text-center mx-2">
-            <h3>Welkom contact</h3>
-            <p>Bekijk <a href="#">deze link</a> voor meer informatie.</p>
-        </article>
-        <article class="container p-3 bg-light text-center mx-2">
-            <img src="{% static 'HotelApp/img/dummy_image.jpg' %}" class="img-fluid rounded w-50 w-25" alt="Voorbeeld afbeelding">
-        </article>
-    </section>
-{% endblock %}
 
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+<div class="container contact-container">
+    <div class="row">
+        <!-- Contactformulier -->
+        <div class="col-lg-7 contact-form-container">
+            <form action="{% url 'verwerken' %}" method="POST" class="contact-form">
+                {% csrf_token %}
+                <h2>Jouw Gegevens</h2>
+
+                <div class="form-group">
+                    <label for="naam">Naam:</label>
+                    <input type="text" id="naam" name="naam" placeholder="Je naam" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Je e-mail" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="bericht">Bericht:</label>
+                    <textarea id="bericht" name="bericht" placeholder="Je bericht" rows="4" required
+                        class="form-control"></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Verstuur</button>
+            </form>
+        </div>
+
+        <!-- Bedrijfsgegevens -->
+        <div class="col-lg-5 company-info">
+            <h2 class="custom_h2">Bedrijfsgegevens</h2>
+
+            <p>
+                <i class="fas fa-phone-alt"></i>
+                <strong>Telefoon: &nbsp</strong>
+                <a class="a_custom" href="tel:0123456789">012-3456789</a>
+            </p>
+
+            <p>
+                <i class="fas fa-map-marker-alt"></i>
+                <strong>Adres: &nbsp</strong>
+                <a class="a_custom"  href="https://www.google.com/maps?q=Straatnaam+85,+1234+AB,+Alkmaar" target="_blank">
+                    Straatnaam 85, 1234 AB, Alkmaar
+                </a>
+            </p>
+
+            <p>
+                <i class="fas fa-envelope"></i>
+                <strong>E-mail: &nbsp</strong>
+                <a class="a_custom" href="mailto:support@DeZonneVallei.nl">support@DeZonneVallei.nl</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

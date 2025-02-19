@@ -25,7 +25,13 @@ SECRET_KEY = 'django-insecure-7d6(8zl+=m8#83lw51dxb9z&e7)2soo8ozz!3c)iii!__u4zt^
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'valleidezonne@gmail.com'
+EMAIL_HOST_PASSWORD = 'scwyhmpvxlajsdaq'
+DEFAULT_FROM_EMAIL = 'valleidezonne@gmail.com'
 ALLOWED_HOSTS = []
 
 
@@ -140,3 +146,5 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -1,0 +1,45 @@
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'HotelApp/css/footer.css' %}">
+{% endblock %}
+{% block footer %}
+
+<div class="container footer-container">
+
+    <!-- Hotel info -->
+    <div class="footer-info">
+        <h3 class="fw-bold">De Zonne Vallei</h3>
+        <p class="footer-text">Waar luxe, gastvrijheid en comfort samenkomen voor een onvergetelijke ervaring.
+        </p>
+    </div>
+
+    <!-- Weer informatie -->
+    <div class="weather">
+        {% if weather %}
+        <p class="mb-1">Het weer in <strong>{{ weather.city }}</strong>: {{ weather.temp }}°C, {{ weather.description }}</p>
+        <img src="https://openweathermap.org/img/wn/{{ weather.icon }}.png" alt="Weer icoon"
+            class="weather-icon">
+        {% else %}
+        <p>Het weer is momenteel niet beschikbaar.</p>
+        {% endif %}
+    </div>
+
+
+    <!-- Links -->
+    <div class="footer-nav">
+        <h4 class="fw-semibold">Navigatie</h4>
+        <nav class="nav-links">
+            <a href="{% url 'kamers' %}"><i class="fas fa-bed"></i> Kamers</a>
+            <a href="{% url 'restaurants' %}"><i class="fas fa-utensils"></i> Restaurant</a>
+            <a href="{% url 'over_ons' %}"><i class="fas fa-info-circle"></i> Over ons</a>
+            <a href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Copyright -->
+<div class="text-center copyright">
+    <p class="small mb-0">© 2025 De Zonne Vallei. Alle rechten voorbehouden.</p>
+</div>
+
+{% endblock %}
