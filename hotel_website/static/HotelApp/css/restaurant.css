@@ -1,7 +1,57 @@
-.menu-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+/* Algemene achtergrondkleur voor de pagina */
+
+
+/* Stijl voor de hero sectie */
+.hero {
+    background-color: #B5925C; /* Goudbruine achtergrond */
+    color: white;
+    padding: 50px 0;
 }
 
+/* Stijl voor de menu-kaarten */
+.menu-card {
+    background-color: #FFFFFF; /* Witte achtergrond voor de kaarten */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Zachte schaduw voor diepte */
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover-effect op de kaarten */
+.menu-card:hover {
+    transform: translateY(-10px); /* Beweging bij hover voor dynamisch effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Versterkte schaduw bij hover */
+}
+
+/* Titelstijl van menu-secties */
+.menu-title {
+    color: #B5925C; /* Goudbruin voor de titel */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Lijststijl voor de menu-items */
+ul.list-unstyled li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Kleur voor de tekst in de hoofdbalk */
+.text-white {
+    color: #FFFFFF;
+}
+
+/* Stijlen voor specifieke iconen in de menu-lijst */
+ul.list-unstyled i {
+    color: #B5925C; /* Goudbruine kleur voor iconen */
+    margin-right: 10px;
+}
+
+/* Stijlen voor grotere schermen */
+@media (max-width: 992px) {
+    .col-lg-4, .col-lg-6 {
+        margin-bottom: 20px;
+    }
+}
