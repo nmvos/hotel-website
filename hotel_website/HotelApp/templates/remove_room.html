@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="container py-5">
+    <h2 class="text-center">Kamer toevoegen</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4">
+                <form action="{% url 'remove_room' room.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger mt-1 text-light">Verwijderen</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

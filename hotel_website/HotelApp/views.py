@@ -5,6 +5,7 @@ from .models import Room, Reservations
 import requests, json
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -47,6 +48,7 @@ def add_room(request):
         if form.is_valid(): # validatie
             new_room = form.save(commit=False)
             new_room.save() 
+            messages.info(request, "Kamer is toegevoegd!")
             return redirect("kamers") 
         
   return render(request, "add_room.html", {"form": form})
@@ -66,6 +68,29 @@ def edit_room(request, room_id): # def edit_room een je geeft de room_id mee (pr
         form = RoomForm(instance=room)  # zorgt ervoor dat je altijd de kamer gegevens kan zien in de kamer
 
     return render(request, "edit_room.html", {"form": form}) # redirect je naar edit_room.html en de rest snap ik niet
+
+
+
+
+@login_required()
+def remove_room(request, room_id):
+    if request.method == 'POST':
+      room = get_object_or_404(Room, id=room_id)
+      room.delete()
+      messages.info(request, "Kamer is verwijderd")
+
+      return redirect("kamers")
+        
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -125,7 +150,9 @@ def verwerken(request):
             fail_silently=False,
         )
 
-        return HttpResponse('Bedankt voor je bericht!')
+        messages.info(request, "Bedankt voor je bericht!")
+        return redirect('contact')
+        
 
     return redirect('contact')
     

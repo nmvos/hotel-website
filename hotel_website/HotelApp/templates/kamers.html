@@ -37,10 +37,18 @@
                         ❌
                         {% endif %}</p>
 
+                    <p class="card-text"><strong>Beschrijving:</strong> {{ room.description }}</p>
+
                     <a href="{% url 'reserve_room' %}" class="btn btn-custom text-light">Reserveer</a>
 
                     {% if user.is_authenticated %}
                     <a href="{% url 'edit_room' room.id %}" class="btn btn-custom text-light">Kamer wijzigen</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <form action="{% url 'remove_room' room.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger mt-1 ">Verwijderen <i class="fa-solid fa-trash-can"></i></button>
+                    </form>
                     {% endif %}
                 </div>
             </div>
