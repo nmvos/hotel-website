@@ -1,0 +1,29 @@
+:root{
+    --huisstyle1: #B5925C;
+    --huisstyle1Hover: #8c6d4a;
+    --huisstyle2: #FFFFFF;
+    --huisstyle3: #F9F58B;
+}
+
+
+
+
+
+/* Custom Scrollbar Styles */
+body::-webkit-scrollbar {
+    width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent; /* Changed the rail color */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--huisstyle1); /* Updated the thumb color */
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px var(--huisstyle3);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--huisstyle1Hover); /* Darker shade for hover effect */
+}
