@@ -34,7 +34,6 @@ def add_room(request):
   return render(request, "add_room.html", {"form": form})
 
 
-
 @login_required() # je moet ingelogd zijn anders kan je niet naar de pagina
 def edit_room(request, room_id): # def edit_room een je geeft de room_id mee (primary key) zodat je deze in de code kunt gebruiken
     room = get_object_or_404(Room, id=room_id) # room is de model room en omdat daar niet de room_id (primary_key) in zit geef je die appart mee
@@ -46,11 +45,9 @@ def edit_room(request, room_id): # def edit_room een je geeft de room_id mee (pr
             messages.info(request, "Kamer is gewijzigd!")
             return redirect("kamers")  # verwijst je naar de kamer pagina
     else:
-        form = RoomForm(instance=room)  # zorgt ervoor dat je altijd de kamer gegevens kan zien in de kamer
+        form = RoomForm(instance=room)  
 
     return render(request, "edit_room.html", {"form": form}) # redirect je naar edit_room.html 
-
-
 
 
 @login_required()
@@ -94,12 +91,10 @@ def reserve_room(request):
             recipient_list=[settings.DEFAULT_FROM_EMAIL],
             fail_silently=False,
             )
-
+        messages.info(request, "Kamer gereserveerd!")
         return redirect("kamers") 
         
   return render(request, "reserve_room.html", {"form": form})
-
-
 
 def verwerken(request):
     if request.method == 'POST':
