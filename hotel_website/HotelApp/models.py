@@ -13,7 +13,8 @@ class Room(models.Model):
     price_per_night = models.DecimalField(max_digits=6, decimal_places=2) 
     availability = models.BooleanField(default=True) 
     description = models.TextField(default="Nog geen beschrijving beschikbaar.")
-    image = models.ImageField(upload_to='room_images/', null=True, blank=True)  
+    image = models.ImageField(upload_to='rooms/', blank=True, null=True)
+   
 
     def __str__(self):
         return f"{self.get_room_type_display()} - €{self.price_per_night:.2f}"

@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
 {% block content %}
 <section class="d-flex justify-content-center flex-wrap">
     <article class="container p-3 bg-light text-center mx-2">
@@ -29,23 +27,27 @@
     <div class="row">
         {% for room in rooms %}
         <div class="col-md-4">
-            <div class="card shadow-sm mb-4">
-                <div class="card-body text-center">
+            <div class="card shadow-sm mb-4 h-100 d-flex flex-column">
+                
+                {% if room.image %}
+                <img src="{{ room.image.url }}" class="card-img-top" alt="Kamer afbeelding"
+                    style="height: 200px; object-fit: cover;">
+                {% else %}
+                <img src="{% static 'HotelApp/img/default_room.jpg' %}" class="card-img-top"
+                    alt="Geen afbeelding beschikbaar" style="height: 200px; object-fit: cover;">
+                {% endif %}
+                <div class="card-body text-center d-flex flex-column">
                     <h5 class="card-title">{{ room.room_type }}</h5>
                     <p class="card-text"><strong>Prijs per nacht:</strong> €{{ room.price_per_night }}</p>
-                    <p class="card-text"><strong>Beschikbaarheid:</strong> {% if room.availability %}
-                        ✅
-                        {% else %}
-                        ❌
-                        {% endif %}
+                    <p class="card-text"><strong>Beschikbaarheid:</strong>
+                        {% if room.availability %} ✅ {% else %} ❌ {% endif %}
                     </p>
-                    <p class="card-text"><strong>Beschrijving:</strong> {{ room.description }}</p>
-
+                    <p class="card-text flex-grow-1"><strong>Beschrijving:</strong> {{ room.description }}</p>
                     {% if user.is_authenticated %}
-                    <div class="d-flex justify-content-center">
+                    <div class="mt-auto">
                         <a href="{% url 'edit_room' room.id %}" class="btn btn-custom text-light mx-2">Kamer
                             wijzigen</a>
-                        <form action="{% url 'remove_room' room.id %}" method="POST">
+                        <form action="{% url 'remove_room' room.id %}" method="POST" class="d-inline">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger">Verwijderen <i
                                     class="fa-solid fa-trash-can"></i></button>

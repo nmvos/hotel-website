@@ -7,9 +7,11 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card p-4">
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
+                    <p>{{ room.image.url }}</p>
+
                     <button type="submit" class="btn btn-custom text-light">Wijzigen</button>
                 </form>
             </div>

@@ -39,8 +39,13 @@ def edit_room(request, room_id): # def edit_room een je geeft de room_id mee (pr
     room = get_object_or_404(Room, id=room_id) # room is de model room en omdat daar niet de room_id (primary_key) in zit geef je die appart mee
 
     if request.method == 'POST': # als de request methode post is dan:
-        form = RoomForm(request.POST, instance=room) # het formulier is mijn custom form die ik heb aangemaakt en die vraag je met post, met instance=room vraag je alle data ervan uit
+        form = RoomForm(request.POST, request.FILES, instance=room) # het formulier is mijn custom form die ik heb aangemaakt en die vraag je met post, met instance=room vraag je alle data ervan uit
         if form.is_valid(): # als de form voldoet aan de form standaarden dan:
+            if 'image' in request.FILES:
+              print("Nieuwe afbeelding ontvangen:", request.FILES['image'].name)
+            else:
+              print("Geen nieuwe afbeelding ontvangen")
+
             form.save()  # slaat de form op
             messages.info(request, "Kamer is gewijzigd!")
             return redirect("kamers")  # verwijst je naar de kamer pagina
