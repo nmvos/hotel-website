@@ -24,11 +24,11 @@
     <div class="text-center my-4">
         <a href="{% url 'reserve_room' %}" class="btn btn-custom text-light">Reserveer</a>
     </div>
-    <div class="row">
+    <div class="row ">
         {% for room in rooms %}
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
             <div class="card shadow-sm mb-4 h-100 d-flex flex-column">
-                
+
                 {% if room.image %}
                 <img src="{{ room.image.url }}" class="card-img-top" alt="Kamer afbeelding"
                     style="height: 200px; object-fit: cover;">

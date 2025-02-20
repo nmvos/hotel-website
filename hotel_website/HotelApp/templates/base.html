@@ -20,11 +20,11 @@
 <body>
     {% if messages %}
     {% for message in messages %}
-        <script>
-            alert("{{ message }}");
-        </script>
+    <script>
+        alert("{{ message }}");
+    </script>
     {% endfor %}
-{% endif %}
+    {% endif %}
     <header>
         {% block header %}
         {% include 'header/header.html' %}
@@ -36,7 +36,7 @@
         {% block footer %}
         {% include 'footer/footer.html' %}
         {% endblock %}
-        
+
     </footer>
 </body>
 
