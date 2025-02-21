@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7d6(8zl+=m8#83lw51dxb9z&e7)2soo8ozz!3c)iii!__u4zt^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -32,7 +33,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'valleidezonne@gmail.com'
 EMAIL_HOST_PASSWORD = 'scwyhmpvxlajsdaq'
 DEFAULT_FROM_EMAIL = 'valleidezonne@gmail.com'
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['myapp.onrender.com']
 
 
 # Application definition
@@ -86,6 +87,8 @@ WSGI_APPLICATION = 'hotel_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import pymysql
+pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.mysql',
