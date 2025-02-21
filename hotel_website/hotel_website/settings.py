@@ -87,18 +87,29 @@ WSGI_APPLICATION = 'hotel_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import os
 import pymysql
+import dj_database_url
+
 pymysql.install_as_MySQLdb()
-DATABASES = {
-    'default': {
-       'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hotel-website',  # De naam van je database
-        'USER': 'root',  # De MySQL-gebruiker
-        'PASSWORD': '',  # Het wachtwoord voor de MySQL-gebruiker
-        'HOST': 'localhost',  # Of het IP-adres van je MySQL-server
-        'PORT': '',  # De standaardpoort voor MySQL
+
+DATABASE_URL = os.getenv('DATABASE_URL')
+
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.config(default=DATABASE_URL)
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'hotel-website',  # De naam van je database
+            'USER': 'root',  # De MySQL-gebruiker
+            'PASSWORD': '',  # Het wachtwoord (leeg bij XAMPP)
+            'HOST': '127.0.0.1',  # Gebruik 127.0.0.1 bij XAMPP
+            'PORT': '3306',  # Standaard MySQL-poort
+        }
+    }
 
 LOGIN_URL = 'login'
 
