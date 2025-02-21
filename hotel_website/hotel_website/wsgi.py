@@ -12,10 +12,10 @@ import sys
 from django.core.wsgi import get_wsgi_application
 
 # Voeg de project root toe aan sys.path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Zet de juiste settings module
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hotel_website.hotel_website.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hotel_website.settings')
 
 application = get_wsgi_application()
 
