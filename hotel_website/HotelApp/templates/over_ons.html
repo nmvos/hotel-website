@@ -8,88 +8,89 @@
 {% block content %}
 
 <body>
-    <section id="welkom" class="text-center py-5 bg-light">
-        <div class="container">
-            <h2 class="mb-4">Welkom bij Hotel De Zonne Vallei</h2>
-            <p class="lead">Bij Hotel De Zonne Vallei streven we ernaar om elke gast een onvergetelijke ervaring te
-                bieden, doordrenkt met luxe, comfort en uitzonderlijke gastvrijheid.</p>
-            <img src="{% static 'HotelApp/img/hotel-lobby.jpg' %}" alt="Hotel De Zonne Vallei"
-                class="img-fluid rounded shadow w-100">
-            <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+    <!-- Hero Section -->
+    <section id="welkom" class="position-relative text-center text-light d-flex align-items-center justify-content-center" style="background: url('{% static 'HotelApp/img/hotel-lobby.jpg' %}') center/cover no-repeat; height: 100vh;">
+        <div class="container bg-dark bg-opacity-50 p-5 rounded text-center">
+            <h1 class="display-4">Welkom bij Hotel De Zonne Vallei</h1>
+            <p class="lead">Ervaar luxe, comfort en gastvrijheid op het hoogste niveau.</p>
+            <a href="#ons-verhaal" class="btn btn-lg btn-custom">Ontdek meer</a>
         </div>
     </section>
 
+    <!-- Ons Verhaal -->
     <section id="ons-verhaal" class="py-5">
-        <div class="container text-center">
-            <h1>Ons verhaal</h1>
-            <p>Hotel De Zonne Vallei is opgericht door Bouke van Zon, een visionaire ondernemer met een passie voor
-                gastvrijheid en een scherp oog voor detail. Met jarenlange ervaring in de horeca-industrie heeft Bouke
-                zijn droom verwezenlijkt om een uniek hotel te creëren waar gasten zich thuis voelen en kunnen genieten
-                van alle gemakken en luxe die het leven te bieden heeft.</p>
-        </div>
-    </section>
-
-    <section id="ons-verhaal" class="py-5 bg-light">
-        <div class="container text-center">
-            <h1>Onze waarden</h1>
-            <p>Bij Hotel De Zonne Vallei staan kwaliteit, gastvrijheid en persoonlijke service centraal. Wij geloven dat
-                elk detail bijdraagt aan een perfecte ervaring, van de smaakvolle inrichting van onze kamers tot de
-                culinaire hoogstandjes in ons restaurant. Ons toegewijde team staat altijd klaar om aan al uw wensen te
-                voldoen en ervoor te zorgen dat uw verblijf zo aangenaam mogelijk is.
-            </p>
-            <h2>
-                <span class="icons"><i class="fas fa-trophy"></i> Kwaliteit</span> |
-                <span class="icons"><i class="fas fa-handshake"></i> Gastvrijheid</span> |
-                <span class="icons"><i class="fas fa-user-tie"></i> Persoonlijke Service</span>
-            </h2>
-        </div>
-    </section>
-
-    <section id="ons-team" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-4">Ons Team</h2>
-            <p>Ons team van enthousiaste en professionele medewerkers deelt de visie van Bouke van Zon om elke gast een
-                warm welkom en een onvergetelijk verblijf te bieden. Van de receptie tot het restaurant en de
-                huishouding, elk teamlid speelt een cruciale rol in het creëren van de unieke sfeer en ervaring waar
-                Hotel De Zonne Vallei om bekend staat.</p>
-            <div class="row g-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2>Ons Verhaal</h2>
+                    <p>Opgericht door Bouke van Zon, een visionair met een passie voor gastvrijheid. Bij Hotel De Zonne Vallei zorgen we ervoor dat gasten zich thuis voelen.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'HotelApp/img/hotel-geschiedenis.jpg' %}" class="img-fluid rounded shadow" alt="Ons Verhaal">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scheiding tussen secties --> <div class="container my-5"><hr class="my-5"></div>
+
+    
+    <!-- Onze Waarden -->
+    <section id="onze-waarden" class="py-5 bg-light text-center">
+        <div class="container">
+            <h2>Onze Waarden</h2>
+            <div class="row mt-4">
                 <div class="col-md-4">
-                    <div class="card text-center">
-                        <img src="{% static 'HotelApp/img/janedoe.img.jpg' %}" class="card-img-top" alt="Jane">
+                    <i class="fas fa-trophy fa-3x text-custom"></i>
+                    <h4 class="mt-2">Kwaliteit</h4>
+                    <p>Wij garanderen de hoogste standaarden in elk detail.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-handshake fa-3x text-custom"></i>
+                    <h4 class="mt-2">Gastvrijheid</h4>
+                    <p>Onze gasten voelen zich welkom en gewaardeerd.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-user-tie fa-3x text-custom"></i>
+                    <h4 class="mt-2">Persoonlijke Service</h4>
+                    <p>Wij zorgen voor een unieke ervaring op maat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ons Team -->
+    <section id="ons-team" class="py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Ontmoet Ons Team</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm">
+                        <img src="{% static 'HotelApp/img/janedoe.img.jpg' %}" class="card-img-top" alt="Jane Doe">
                         <div class="card-body">
                             <h5 class="card-title">Jane Doe</h5>
-                            <p class="card-text text-muted">f&B Manager</p>
-                            <p>De F&B manager zorgt ervoor dat gasten kunnen genieten van een uitzonderlijke eet- en
-                                drinkervaring door de kwaliteit van het aanbod te waarborgen en het personeel efficiënt
-                                te coördineren. Ze spelen een sleutelrol in het creëren van een gastvrije sfeer rondom
-                                maaltijden en evenementen.</p>
-                            <p><a href="mailto:jane@example.com" class="btn btn-custom text-light">Contact</a></p>
+                            <p class="card-text">F&B Manager</p>
+                            <a href="mailto:jane@example.com" class="btn btn-custom text-light">Contact</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card text-center">
-                        <img src="{% static 'HotelApp/img/bouke.jpg' %}" class="card-img-top" alt="Bouke">
+                    <div class="card border-0 shadow-sm">
+                        <img src="{% static 'HotelApp/img/bouke.jpg' %}" class="card-img-top" alt="Bouke van Zon">
                         <div class="card-body">
                             <h5 class="card-title">Bouke van Zon</h5>
-                            <p class="card-text text-muted">oprichter</p>
-                            <p>De oprichter is de visionair achter het hotel, verantwoordelijk voor de oprichting en
-                                ontwikkeling van het bedrijf, met een focus op strategische groei en langetermijnsucces.
-                                Ze leggen de basis voor de bedrijfsvoering en de merkidentiteit van het hotel..</p>
-                            <p><a href="mailto:mike@example.com" class="btn btn-custom text-light">Contact</a></p>
+                            <p class="card-text">Oprichter</p>
+                            <a href="mailto:bouke@example.com" class="btn btn-custom text-light">Contact</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card text-center">
-                        <img src="{% static 'HotelApp/img/johndoe.jpg' %}" class="card-img-top" alt="John">
+                    <div class="card border-0 shadow-sm">
+                        <img src="{% static 'HotelApp/img/johndoe.jpg' %}" class="card-img-top" alt="John Doe">
                         <div class="card-body">
                             <h5 class="card-title">John Doe</h5>
-                            <p class="card-text text-muted">concierge</p>
-                            <p>De concierge biedt persoonlijke service aan gasten, door hen te helpen met reserveringen,
-                                lokale informatie en speciale verzoeken. Ze zorgen ervoor dat gasten zich welkom en goed
-                                verzorgd voelen, wat bijdraagt aan hun algehele ervaring</p>
-                            <p><a href="mailto:john@example.com" class="btn btn-custom text-light">Contact</a></p>
+                            <p class="card-text">Concierge</p>
+                            <a href="mailto:john@example.com" class="btn btn-custom text-light">Contact</a>
                         </div>
                     </div>
                 </div>
