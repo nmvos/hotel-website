@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7d6(8zl+=m8#83lw51dxb9z&e7)2soo8ozz!3c)iii!__u4zt^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -33,7 +33,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'valleidezonne@gmail.com'
 EMAIL_HOST_PASSWORD = 'scwyhmpvxlajsdaq'
 DEFAULT_FROM_EMAIL = 'valleidezonne@gmail.com'
-ALLOWED_HOSTS = ['myapp.onrender.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -81,35 +81,23 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hotel_website.wsgi.application'
+
 
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-import os
-import pymysql
-import dj_database_url
 
-pymysql.install_as_MySQLdb()
-
-DATABASE_URL = os.getenv('DATABASE_URL')
-
-if DATABASE_URL:
-    DATABASES = {
-        'default': dj_database_url.config(default=DATABASE_URL)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hotel-website',  # De naam van je database
+        'USER': 'root',  # De MySQL-gebruiker
+        'PASSWORD': '',  # Het wachtwoord voor de MySQL-gebruiker
+        'HOST': 'localhost',  # Of het IP-adres van je MySQL-server
+        'PORT': '',  # De standaardpoort voor MySQL
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'hotel-website',  # De naam van je database
-            'USER': 'root',  # De MySQL-gebruiker
-            'PASSWORD': '',  # Het wachtwoord (leeg bij XAMPP)
-            'HOST': '127.0.0.1',  # Gebruik 127.0.0.1 bij XAMPP
-            'PORT': '3306',  # Standaard MySQL-poort
-        }
-    }
+}
 
 LOGIN_URL = 'login'
 
