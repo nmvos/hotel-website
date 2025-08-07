@@ -8,4 +8,7 @@ Dit was een test opdracht voor mijn stage om te zien hoeveel kennis wij al hadde
 * Django
 
 # Stappen om het project op te zetten
-* Clone de repository 
+* Clone de repository
+* Installeer de vereisten uit ```requirements.txt```
+* Ga naar de juiste submap van het project met ```cd hotel_website```
+* Start de applicatie met ```python manage.py runserver```
