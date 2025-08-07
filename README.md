@@ -1,4 +1,7 @@
 # Hotel De Zonne Vallei
+![Voorbeeldafbeelding](hotel_website/static/HotelApp/img/logo_variant_2.png)
+
+
 
 Dit was een test opdracht voor mijn stage om te zien hoeveel kennis wij al hadden van programmeren
 
